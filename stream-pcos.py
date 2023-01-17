@@ -15,7 +15,7 @@ Weight = st.number_input ('Masukan Berat Badan (kg)')
 
 Height = st.number_input ('Masukan Tinggi Badan (cm)')
 
-BMI = st.number_input ('Masukan Berat Badan Ideal')
+BMI = st.number_input ('Masukan BMI')
 
 Blood_Group = st.number_input('Masukan Blood Group')
 
@@ -25,7 +25,7 @@ Pregnant = st.selectbox('Apakah Anda Hamil', ['Ya', 'Tidak'])
 
 BP_Systolic = st.number_input ('Masukan Angka Tekanan Darah Sistolik (mmHg)')
 
-BP_Diastolic= st.number_input ('Masukan Angka Tekanan Darah Distolik (mmHg)')
+BP_Diastolic= st.number_input ('Masukan Angka Tekanan Darah Diastolik (mmHg)')
 
 Endometrium = st.number_input ('Masukan Tebal Dinding Rahim (mm)')
 
@@ -33,7 +33,7 @@ Endometrium = st.number_input ('Masukan Tebal Dinding Rahim (mm)')
 pp_diagnosis = ''
 
 #mengubah data input pregnant dari string ke numerik
-Pregnant = next(map(lambda x: 1 if x == 'Ya' else 0, [Pregnant]))
+Pregnant = next(itertools.cycle(map(lambda x: 1 if x == 'Ya' else 0, [Pregnant])))
 
 #deklarasikan
 pp_prediction = model.predict([[Age, Weight, Height, BMI, Blood_Group, RR, Pregnant, BP_Systolic, BP_Diastolic, Endometrium]])
